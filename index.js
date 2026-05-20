@@ -2,7 +2,7 @@
 let myLeads = []
 let myArse  = ["notagoodwebsite.cum","ashleelwebsite.come"]
 const inputEl = document.getElementById("input-el")//reference to the input element
-const inputBtn = document.getElementById("input-btn")
+// const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 const tabBtn = document.getElementById("tab-btn")
 //document --> object
@@ -58,20 +58,28 @@ tabBtn.addEventListener("click",function(){
 }) //slightly different in the sense that SAVE INPUT saves the webs that we input in the input field
 //And Save TAB directly saves the link that is on the browser at that instant
 
-inputBtn.addEventListener("click",function(){
+// inputEl.addEventListener("click",function(){
 
-    myLeads.push(inputEl.value)
-    inputEl.value = "" //clearing the input field after typing out the required lead
-    render()
-    // for(let i = 0;i<myLeads.length;i++){
-    //     const li = document.createElement("li")
-    //     li.textContent = myLeads[i]
-    //     ulEl.append(li)
-    // }
-    //another method to render html tags in js, using .createElement("")
+//     myLeads.push(inputEl.value)
+//     inputEl.value = "" //clearing the input field after typing out the required lead
+//     render()
+//     // for(let i = 0;i<myLeads.length;i++){
+//     //     const li = document.createElement("li")
+//     //     li.textContent = myLeads[i]
+//     //     ulEl.append(li)
+//     // }
+//     //another method to render html tags in js, using .createElement("")
 
+// }) //This is for click 
 
-})
+inputEl.addEventListener("keydown",function(){
+
+    if(event.key === "Enter" && inputEl.value.trim() != "") {
+        myLeads.push(inputEl.value)
+        inputEl.value = ""
+        render()
+    }
+})//This is for enter
 //use .addEventListener("event",function(){}) instead of defining a function at onclick and then defining a function for that
 //This would simply listen to the event of the concerned element and render the function defined
 //This is refactoring of code? A: YES
