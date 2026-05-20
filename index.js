@@ -46,11 +46,11 @@ delBtn.addEventListener("dblclick", function(){
 
 tabBtn.addEventListener("click",function(){
     
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-    
-        myLeads.push(tabs[0].url)
-        localStorage.setItem("myArray",JSON.stringify(myLeads))
+    chrome.tabs.query({active: true,currentWindow: true}, function(tabs){
+        //  console.log(tabs)    
+        myLeads.push(tabs[0].url) //I only need to modify myLeads outside render(), rest of it will be done inside the render() function
         render()
+        //also tabs[0].url gives us the required link to push in myLeads because, only one tab can be active in the Current Window, so tabs array consists of only one object
 
     })//only for active chrome tabs(not the tabs array that we defined above) and only for the current window's active tabs
    
